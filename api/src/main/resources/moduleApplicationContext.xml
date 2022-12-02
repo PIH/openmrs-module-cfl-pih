@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Beans to add to the current Application context definition -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <bean id="cflpih.PatientAdvancedDao" class="org.openmrs.module.cflpih.api.dao.impl.PatientAdvancedDaoImpl">
+    <property name="dbSessionFactory" ref="dbSessionFactory"/>
+  </bean>
+
+  <bean id="cflpih.ConfigService" class="org.openmrs.module.cflpih.api.service.impl.ConfigServiceImpl"/>
+  <bean id="cflpih.AdHocMessageService" class="org.openmrs.module.cflpih.api.service.impl.AdHocMessageServiceImpl">
+    <property name="scheduleAdHocSMSesService" ref="sms.scheduleAdHocSMSesService"/>
+    <property name="smsConfigService" ref="sms.configService"/>
+  </bean>
+  <bean parent="serviceContext">
+    <property name="moduleService">
+      <list merge="true">
+        <value>org.openmrs.module.cflpih.api.service.ConfigService</value>
+        <ref bean="cflpih.ConfigService"/>
+        <value>org.openmrs.module.cflpih.api.service.AdHocMessageService</value>
+        <ref bean="cflpih.AdHocMessageService"/>
+      </list>
+    </property>
+  </bean>
+
+</beans>
