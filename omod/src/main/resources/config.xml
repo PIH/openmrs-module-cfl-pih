@@ -22,6 +22,7 @@
   <require_modules>
     <require_module version="${smsVersion}">org.openmrs.module.sms</require_module>
     <require_module version="${legacyUiVersion}">org.openmrs.module.legacyui</require_module>
+    <require_module version="${htmlformentryVersion}">org.openmrs.module.htmlformentry</require_module>
   </require_modules>
 
   <!-- Extensions -->

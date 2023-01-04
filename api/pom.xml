@@ -16,5 +16,11 @@
       <groupId>org.openmrs.module</groupId>
       <artifactId>sms-api</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.openmrs.module</groupId>
+      <artifactId>htmlformentry-api</artifactId>
+      <version>${htmlformentryVersion}</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 </project>
